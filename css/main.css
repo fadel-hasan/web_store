@@ -43,3 +43,9 @@ html {
         display: none;
     }
 }
+.heading-section {
+    color: var(--main--color);
+    margin-bottom: 3rem;
+    text-align: center;
+    font-size: 1.6rem;
+}

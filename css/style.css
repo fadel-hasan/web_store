@@ -258,6 +258,16 @@ ul {
     line-height: 1.3;
     /* width: 50%; */
 }
+.text-content {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.3;
+}
+.text-content h2{
+    color: var(--main--color);
+    padding: 0.8rem;
+    font-size: 2rem;
+}
 .hero-sec .content-sec-one .text-content h2 {
     color: var(--main--color);
     padding: 0.8rem;
@@ -381,6 +391,50 @@ ul {
 .product-sec .content-sec-three {
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+@keyframes new {
+    0%{
+        background-color: var(--main--color);
+        color: white;
+    }
+    /* 50%{
+        background-color: var(--main--color / 0.5);
+        color: white;
+    } */
+    50%{
+        background-color: white;
+        color: var(--main--color);
+    }
+    100%{
+        background-color: var(--main--color);
+        color: white;
+    }
+}
+.new::before{
+    content: "جديد";
+    position: absolute;
+    background-color: var(--main--color);
+    width: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    animation: new 2s  infinite ;
+    -webkit-animation: new 1s  infinite ease-in-out ;
+}
+@media (max-width:600px) {
+    .new::before
+    {
+        width: 50px;
+        height: 20px;
+    }
 }
 .product-sec .content-sec-three h2 {
     color: var(--main--color);
@@ -389,45 +443,56 @@ ul {
 }
 .product-sec .content-sec-three .products {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: flex-start;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
     padding: 0 2rem;
 }
 .product-sec .content-sec-three .products .product {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 200px;
     overflow: hidden;
+    max-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 2rem auto;
-    padding: 1rem;
-    position: relative;
-    transition: 0.7s;
-    -webkit-transition: 0.7s;
-    -moz-transition: 0.7s;
-    -ms-transition: 0.7s;
-    -o-transition: 0.7s;
+    /*justify-content: center;
+    */margin: 2rem auto;
+    /*padding: 1rem;
+    */position: relative;
+    transition: 0.7s ease-in-out;
+    -webkit-transition: 0.7s ease-in-out;
+    -moz-transition: 0.7s ease-in-out;
+    -ms-transition: 0.7s ease-in-out;
+    -o-transition: 0.7s ease-in-out;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
 }
+
 .product-sec .content-sec-three .products .product span {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #161825;
-    color: white;
-    border-radius: 7px;
-    font-size: 1rem;
-    width: 50px;
-    height: 20px;
-    text-align: center;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    -o-border-radius: 7px;
-    cursor: pointer;
+      position: absolute;
+      top: 0px;
+      padding: 0.5rem;
+      right: -100%;
+      background-color: #161825;
+      color: white;
+      font-size: 1rem;
+      width: 100px;
+      cursor: pointer;
+      border-radius: 7px;
+      -webkit-border-radius: 7px;
+      -moz-border-radius: 7px;
+      -ms-border-radius: 7px;
+      -o-border-radius: 7px;
+      transition: 1s ease-in-out ;
+      -webkit-transition: 1s ease-in-out ;
+      -moz-transition: 1s ease-in-out ;
+      -ms-transition: 1s ease-in-out ;
+      -o-transition: 1s ease-in-out ;
 }
 .product-sec .content-sec-three .products .product span:hover {
-    opacity: 0.8;
+    opacity: 0.7;
+    width: 200px;
 }
 .product-sec .content-sec-three .products .product .product-text {
     position: absolute;
@@ -437,21 +502,20 @@ ul {
     bottom: 0;
     height: 30px;
     font-size: 1rem;
-    transition: 1s;
-    -webkit-transition: 1s;
-    -moz-transition: 1s;
-    -ms-transition: 1s;
-    -o-transition: 1s;
-    width: 150px;
+    width: 100%;
 }
 .product-sec .content-sec-three .products .product .product-text h3 {
     color: #161825;
     opacity: 0.6;
 }
-.product-sec .content-sec-three .products .product:hover .product-text {
-    height: 7rem;
-    opacity: 0.7;
-    width: 200px;
+.product-sec .content-sec-three .products .product .product-text h3:hover {
+    color: var(--main--color);
+    opacity: 1;
+    font-size: 1.2rem;
+}
+.product-sec .content-sec-three .products .product:hover span{
+    right: 0px;
+ 
 }
 .product-sec .content-sec-three .products .product img {
     margin-bottom: 1rem;
@@ -461,31 +525,7 @@ ul {
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
-.product-sec .content-sec-three .products .product button {
-    width: 100px;
-    height: 30px;
-    font-size: 0.8rem;
-    padding: 0.5rem;
-    background-color: var(--main--color);
-    border: none;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    transition-duration: 0.5s;
-    transition-timing-function: linear;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-}
-.product-sec .content-sec-three .products .product button:hover {
-    background-color: white;
-    color: var(--main--color);
-    border: 1px solid var(--main--color);
-    scale: 1.1;
-}
+
 .bac-sec {
     background-color: var(--second-color);
 }
@@ -494,88 +534,69 @@ ul {
 }
 footer {
     background-color: #161825;
-    height: 50vh;
     color: white;
 }
 footer .foot-sec {
-    display: flex;
-    flex-wrap: wrap;
+    height: 10rem;
 }
 footer .foot-sec .view-sec {
-    position: relative;
+    display: flex;
     width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
-footer .foot-sec .view-sec h2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-bottom: 10px;
+footer .foot-sec .view-sec h2{
+    width: 100%;
 }
 footer .foot-sec .view-sec p {
-    display: inline-block;
     color: #fff;
-    font-size: 17px;
-    line-height: 32px;
+    font-size: 1.1rem;
     font-weight: normal;
-    position: absolute;
-    top: 40px;
-    left: 0;
+
 }
-footer .foot-sec .link-sec {
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-footer .foot-sec .link-sec h4 {
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 24px;
-    border-bottom: #fff solid 1px;
-    text-align: left;
-    color: #fff;
-    margin-bottom: 15px;
-    display: table;
-    margin-right: 500px;
-}
-footer .foot-sec .link-sec .link {
-    margin-bottom: 10px;
-    padding: 10px;
-    list-style: none;
-    position: absolute;
-    top: 40px;
-    left: 530px;
-    display: flex;
-    flex-direction: column;
-}
-footer .foot-sec .link-sec ul li {
-    font-size: 20px;
-    margin-bottom: 10px;
-    transition: 0.5s;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -ms-transition: 0.5s;
-    -o-transition: 0.5s;
-}
-footer .foot-sec .link-sec ul .megaMenu {
-    overflow: hidden;
-    max-height: 20px;
-}
-footer .foot-sec .link-sec ul .megaMenu:hover {
-    margin-bottom: 60px;
-    /* height: 50px; */
-    overflow: visible;
-}
-footer .foot-sec .link-sec ul li:not(.megaMenu):hover {
-    color: var(--main--color);
-    border-bottom: 2px solid var(--main--color);
-}
+
 footer .copyright {
-    margin-top: 250px;
-    margin-right: 310px;
-    font-size: 20px;
+    text-align: center;
+}
+section{
+    height: 50rem;
+}
+section .product-view{
+    margin-top: 2rem;
+    display: grid;
+    margin-bottom: 2rem;
+    text-align: center;
+    grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+    gap: 3rem;
+}
+
+.btn{
+    display: flex;
+    justify-content: space-evenly;
+}
+.button{
+    width: max-content;
+    font-size: 1.5rem;
+    padding:.75rem 1rem;
+    border-radius: .2rem;
+    color: var(--main--color);
+    font-weight: bold;
+    border: 1px solid var(--main--color);
+    transition-duration: 0.5s;
+}
+.button:hover{
+    background-color: var(--main--color);
+    color: #fff;
+}
+@media (max-width:550px) {
+    section .product-view{
+        grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    }
+    section .product-view .product-img img{
+        width:300px;
+        height: 200px;
+    }
+
+    
 }
